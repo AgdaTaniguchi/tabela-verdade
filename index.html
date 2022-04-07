@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teste</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>Tabela verdade</h1>
+        <div class="modelo-exemplo">
+            Modelo: <span class="exemplo">Saída</span> = <span class="exemplo">Entrada</span> <span class="exemplo">+</span> <span class="exemplo">Entrada</span>
+        </div>
+        <div class="campo-input">
+            <input type="text" id="saida" value="S" maxlength="2">
+            <span>=</span>
+            <input type="text" class="letraEntrada" value="A" maxlength = "1">
+            <select class="operacao">
+                <option value="+">+</option>
+                <option value="x">x</option>
+            </select>
+            <input type="text" class="letraEntrada" value="B" maxlength = "1">
+        </div>
+
+        <button>Adicionar saída</button>
+        <button>Remover saída</button>
+
+        <table>
+            <tr>
+                <th class="th-entrada">A</th>
+                <th class="th-entrada">B</th>
+                <th class="th-entrada">C</th>
+                <!-- <th class="th-entrada">D</th> -->
+                <!-- <th>S1</th> -->
+                <!-- <th>S2</th> -->
+                <th>S</th>
+            </tr>
+        </table>
+    </body>
+</html>
+
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>

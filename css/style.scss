@@ -1,0 +1,110 @@
+$fundo: #0f0e17;
+$texto: #fffffe;
+$cor-principal: #e53170;
+$destaque: #30E640;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    background: $fundo;
+    text-align: center;
+    color: $texto;
+}
+
+table{
+    width: 80%;
+    margin: 0 auto;
+    table-layout: fixed;
+    tr{
+        background: lighten($cor-principal, 20);
+        color: $fundo;
+        text-align: center;
+        th{
+            padding: 10px;
+            background: $cor-principal;
+            color: $texto;
+        }
+        td{
+            padding: 5px;
+        }
+    }
+}
+
+h1{
+    margin: 30px 0;
+}
+
+.entrada{
+    background: lighten($cor-principal, 30);
+}
+
+.modelo-exemplo{
+    margin: 0 auto;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 7px;
+    // background: #333333;
+    border: 1.5px solid $cor-principal;
+}
+
+.exemplo, input, select, button{
+    margin: 10px;
+    border: 1px solid $cor-principal;
+    border-radius: 7px;
+    padding: 7px;
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    outline: none;
+    width: 35px;
+    text-align: center;
+}
+
+input, select{
+    transition-duration: 0.2s;
+    &:focus{
+        transform: translateY(-3px);
+        border-color: $destaque;
+    }
+}
+
+button{
+    background: $cor-principal;
+    width: fit-content;
+    transition: background 0.2s;
+    &:hover{
+        background: lighten($cor-principal, 5);
+        transition: background 0.2s;
+    }
+    &:active{
+        transform: translateY(-1px);
+        transition: background 0.2s;
+        background: darken($cor-principal, 10);
+    }
+}
+
+.campo-input{
+    margin: 30px auto;
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input, select{
+        transition-duration: 0.2s;
+        &:hover{
+            border: 1px solid $destaque;
+            transition-duration: 0.2s;
+        }
+    }
+    select{
+        appearance: none;
+        option{
+            background: $fundo;
+        }
+    }
+}
