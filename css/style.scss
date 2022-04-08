@@ -48,8 +48,7 @@ h1{
     width: fit-content;
     padding: 20px;
     border-radius: 7px;
-    // background: #333333;
-    border: 1.5px solid $cor-principal;
+    border: 2px solid $cor-principal;
 }
 
 .exemplo, input, select, button{
@@ -76,6 +75,9 @@ button{
     background: $cor-principal;
     width: fit-content;
     transition: background 0.2s;
+    &:focus{
+        border: 1px solid $destaque;
+    }
     &:hover{
         background: lighten($cor-principal, 5);
         transition: background 0.2s;
@@ -87,7 +89,7 @@ button{
     }
 }
 
-.campo-input{
+.campo-saida{
     margin: 30px auto;
     width: 80%;
     max-width: 800px;
@@ -106,5 +108,16 @@ button{
         option{
             background: $fundo;
         }
+    }
+    button{
+        // border-radius: 50%;
+        font-weight: bold;
+        width: 30px;
+        height: 30px;
+    }
+    .separacao{
+        width: 2px;
+        height: 35px;
+        background: $cor-principal;
     }
 }

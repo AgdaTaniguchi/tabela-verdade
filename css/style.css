@@ -49,7 +49,7 @@ h1 {
   width: fit-content;
   padding: 20px;
   border-radius: 7px;
-  border: 1.5px solid #e53170;
+  border: 2px solid #e53170;
 }
 
 .exemplo, input, select, button {
@@ -84,6 +84,10 @@ button {
   transition: background 0.2s;
 }
 
+button:focus {
+  border: 1px solid #30E640;
+}
+
 button:hover {
   background: #e84880;
   -webkit-transition: background 0.2s;
@@ -98,7 +102,7 @@ button:active {
   background: #ca1957;
 }
 
-.campo-input {
+.campo-saida {
   margin: 30px auto;
   width: 80%;
   max-width: 800px;
@@ -113,24 +117,36 @@ button:active {
           align-items: center;
 }
 
-.campo-input input, .campo-input select {
+.campo-saida input, .campo-saida select {
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
 }
 
-.campo-input input:hover, .campo-input select:hover {
+.campo-saida input:hover, .campo-saida select:hover {
   border: 1px solid #30E640;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
 }
 
-.campo-input select {
+.campo-saida select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
 
-.campo-input select option {
+.campo-saida select option {
   background: #0f0e17;
+}
+
+.campo-saida button {
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+}
+
+.campo-saida .separacao {
+  width: 2px;
+  height: 35px;
+  background: #e53170;
 }
 /*# sourceMappingURL=style.css.map */
