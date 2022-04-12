@@ -1,4 +1,4 @@
-// Parte lógica
+// Criando e calculando a matriz
 function criarMatrizEntradas(qtdEntrada){
     let matriz = [];
 
@@ -76,7 +76,7 @@ function calcularSaidas(matriz, operador){
 }
 
 // Separar as matrizes de acordo com as saídas
-function criarMatrizFinal(ordemSaida, operadores){
+function criarMatriz(ordemSaida, operadores){
     let qtdEntrada = 0;
     let colunasSaidas = [];
     
@@ -109,43 +109,79 @@ function criarMatrizFinal(ordemSaida, operadores){
         }
 
         for(let coluna = 0; coluna < saidaLinha.length; coluna++){
-            if(contador != ordemSaida.length - 1){
+            if(contador != ordemSaida.length - 1 || ordemSaida.length == 1){
                 saidas.push([]);
             }
             saidas[coluna].push(saidaLinha[coluna]);
         }
     }
 
-    // console.table(saidas);
+    // Adicionando saídas intermediárias
+    for(let linha = 0; linha < saidas.length; linha++){
+        for(let coluna = 0; coluna < ordemSaida.length; coluna++){
+            matriz[linha].push(saidas[linha][coluna]);
+        }
+    }
+    
+    // Adicionando saída final
+    if(ordemSaida.length == 1){
+        return matriz;
+    }
 
-    console.table(calcularSaidas(saidas, operadores[0]));
+    let saidaFinal = calcularSaidas(saidas, operadores[operadores.length - 1]);
 
+    for(let linha = 0; linha < saidaFinal.length; linha++){
+        matriz[linha].push(saidaFinal[linha]);
+    }
+    
     return matriz;
 }
 
-criarMatrizFinal([3, 2], ["x", "x"]);
+// console.table(criarMatriz([3, 2], ["x", "x", "x"]));
 
-// Parte física
+// Adicionando a matriz na tabela
 function inserirTabela(){
+    // Pegando a quantidade de >> ENTRADAS <<
+    let qtdEntradas = [];
+    $('.campo-saida').each((item) => {
+        qtdEntradas.push($(`.campo-saida:eq(${item}) .letraEntrada`).length);
+    });
+    qtdEntradas.pop();
+
+    // Calculando a quantidade total de entradas
+    let totalEntradas = 0;
+    for(let index = 0; index < qtdEntradas.length; index++){
+        totalEntradas += qtdEntradas[index];
+    }
+
+    // Pegando as >> OPERAÇÕES << das saídas
+    let operacoes = [];
+    $('.campo-saida').each((item) => {
+        operacoes.push($(`.campo-saida:eq(${item}) .operacao`).val());
+    });
+
+    let matriz = criarMatriz(qtdEntradas, operacoes);
+
+    for(let linha = 0; linha < matriz.length; linha++){
+        $("table").append("<tr class='resultado'></tr>");
+        for(let coluna = 0; coluna < matriz[0].length; coluna++){
+            $('tr.resultado').eq(-1).append(`<td>${matriz[linha][coluna]}</td>`);
+            if(coluna >= totalEntradas && coluna != totalEntradas + qtdEntradas.length){
+                $('td').eq(-1).addClass('saida-intermediaria');
+            }
+            else if(coluna == totalEntradas + qtdEntradas.length){
+                $('td').eq(-1).addClass('saida-final');
+                if($('td').eq(-1).text() == '1'){
+                    $('td').eq(-1).html('<div class="saida-positiva">1</div>');
+                    // $('td').eq(-1).addClass('saida-positiva');
+                }
+            }
+        }
+    }
 }
 
-// function inserirTabela(qtdEntrada, qtdSaida){
-//     let matrizResultado = criarMatrizEntradas($('.th-entrada').length);
-//     matrizResultado = calcularSaidas(matrizResultado, "+");
+inserirTabela();
 
-//     for(let linha = 0; linha < 2 ** qtdEntrada; linha++){
-//         $('table').append(`<tr class='resultados'></tr>`);
-//         for(let coluna = 0; coluna < qtdEntrada + qtdSaida; coluna++){
-//             // Adicionando zeros na tabela
-//             $('tr.resultados').eq(-1).append('<td>0</td>');
-            
-//             // Adicionando a classe "entrada" na <td>
-//             $('td').eq(-1).addClass('entrada');
-
-//             // Verificando se é 1 e alterando
-//             if(matrizResultado[linha][coluna] == 1){
-//                 $('td').eq(-1).text('1');
-//             }
-//         }
-//     }
-// }
+function gerarTabela(){
+    inserirTabela();
+}

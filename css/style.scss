@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
 $fundo: #0f0e17;
 $texto: #fffffe;
 $cor-principal: #e53170;
 $destaque: #30E640;
 
+:root{
+    font-size: 20px;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Cutive Mono', monospace;
 }
 
 body{
@@ -18,7 +24,7 @@ body{
 
 table{
     width: 80%;
-    margin: 0 auto;
+    margin: 30px auto;
     table-layout: fixed;
     tr{
         background: lighten($cor-principal, 20);
@@ -39,8 +45,19 @@ h1{
     margin: 30px 0;
 }
 
-.entrada{
-    background: lighten($cor-principal, 30);
+.saida-intermediaria{
+    background: lighten($cor-principal, 15);
+}
+
+.saida-final{
+    background: lighten($cor-principal, 10);
+}
+
+.saida-positiva{
+    background: lighten($cor-principal, 5);
+    width: 25px;
+    margin: 0 auto;
+    border-radius: 50%;
 }
 
 .modelo-exemplo{
@@ -71,9 +88,19 @@ input, select{
     }
 }
 
+.botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 button{
-    background: $cor-principal;
+    font-size: 0.9rem;
     width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $cor-principal;
     transition: background 0.2s;
     &:focus{
         border: 1px solid $destaque;
@@ -86,6 +113,9 @@ button{
         transform: translateY(-1px);
         transition: background 0.2s;
         background: darken($cor-principal, 10);
+    }
+    &.big-button{
+        padding: 10px;
     }
 }
 

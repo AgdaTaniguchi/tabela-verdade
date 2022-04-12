@@ -10,4 +10,4 @@ Este projeto foi criado com o intuito de criar a tabela verdade de forma rápida
 - Biblioteca JQuery
 
 ### Observações
-- Este projeto está em desenvolvimento, podendo haver diversas alterações ao longo do tempo.
+- Este projeto está em desenvolvimento, o que significa que pode haver diversas alterações ao longo do tempo.

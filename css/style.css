@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
+:root {
+  font-size: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Cutive Mono', monospace;
 }
 
 body {
@@ -14,7 +19,7 @@ body {
 
 table {
   width: 80%;
-  margin: 0 auto;
+  margin: 30px auto;
   table-layout: fixed;
 }
 
@@ -38,8 +43,19 @@ h1 {
   margin: 30px 0;
 }
 
-.entrada {
-  background: #f6b9ce;
+.saida-intermediaria {
+  background: #ee759f;
+}
+
+.saida-final {
+  background: #eb5e8f;
+}
+
+.saida-positiva {
+  background: #e84880;
+  width: 25px;
+  margin: 0 auto;
+  border-radius: 50%;
 }
 
 .modelo-exemplo {
@@ -75,11 +91,33 @@ input:focus, select:focus {
   border-color: #30E640;
 }
 
+.botoes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 button {
-  background: #e53170;
+  font-size: 0.9rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #e53170;
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
 }
@@ -100,6 +138,10 @@ button:active {
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
   background: #ca1957;
+}
+
+button.big-button {
+  padding: 10px;
 }
 
 .campo-saida {
