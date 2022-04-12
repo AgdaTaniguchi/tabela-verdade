@@ -51,6 +51,7 @@ function calcularSaidas(matriz, operador){
         }
     }
 
+
     for(let linha = 0; linha < matriz.length; linha++){
         for(let coluna = 0; coluna < matriz[0].length; coluna++){
             switch(operador){
@@ -64,13 +65,13 @@ function calcularSaidas(matriz, operador){
             }
         }
     }
-
+    
     for(let contador = 0; contador < saida.length; contador++){
         if(saida[contador] > 1){
             saida[contador] = 1;
         }
     }
-
+    
     return saida;
 }
 
@@ -92,7 +93,8 @@ function criarMatrizFinal(ordemSaida, operadores){
     let matriz = criarMatrizEntradas(qtdEntrada);
     let saidas = [];
     
-    for (let contador = 0; contador < ordemSaida.length; contador++) {
+    for(let contador = 0; contador < ordemSaida.length; contador++){
+        let saidaLinha = [];
         let matrizTemporaria = [];
         
         for(let linha = 0; linha < matriz.length; linha++){
@@ -103,37 +105,25 @@ function criarMatrizFinal(ordemSaida, operadores){
                 }
             }
 
-            let saidaLinha = calcularSaidas(matrizTemporaria, operadores[contador]);
-
-            // Adicionar as saídas calculadas na matriz e criar uma nova matriz com as saídas calculadas para calcular a saída final!!!
-    
-            for (let index = 0; index < saidaLinha.length; index++) {
-                matriz[linha].push(saidaLinha[index]);
-            }
+            saidaLinha = calcularSaidas(matrizTemporaria, operadores[contador]);
         }
 
+        for(let coluna = 0; coluna < saidaLinha.length; coluna++){
+            if(contador != ordemSaida.length - 1){
+                saidas.push([]);
+            }
+            saidas[coluna].push(saidaLinha[coluna]);
+        }
     }
-    
-    console.table(saidas);
 
+    // console.table(saidas);
 
-    
-    // for(let index = 0; index < ordemSaida.length; index++){
-    //     let saidaLinha = calcularSaidas(matriz, operadores[index]);
-    //     for(let linha = 0; linha < saidaLinha.length; linha++){
-    //         saidas.push(saidaLinha[linha]);
-    //         matriz[linha].push(saidaLinha[linha]);
-    //     }
-    // }
-
-    // for(let linha = 0; linha < matriz.length; linha++){
-    //     matriz[linha].push(saidas[linha]);
-    // }
+    console.table(calcularSaidas(saidas, operadores[0]));
 
     return matriz;
 }
 
-console.table(criarMatrizFinal([3, 2], ["x", "x"]));
+criarMatrizFinal([3, 2], ["x", "x"]);
 
 // Parte física
 function inserirTabela(){
