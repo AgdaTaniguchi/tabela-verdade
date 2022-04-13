@@ -26,15 +26,17 @@ table{
     width: 80%;
     margin: 30px auto;
     table-layout: fixed;
-    tr{
-        background: lighten($cor-principal, 20);
-        color: $fundo;
-        text-align: center;
+    thead{
         th{
             padding: 10px;
             background: $cor-principal;
             color: $texto;
         }
+    }
+    tr{
+        background: lighten($cor-principal, 20);
+        color: $fundo;
+        text-align: center;
         td{
             padding: 5px;
         }

@@ -12,68 +12,68 @@
         <div class="modelo-exemplo">
             Modelo: <span class="exemplo">Saída</span> = <span class="exemplo">Entrada</span> <span class="exemplo">+</span> <span class="exemplo">Entrada</span>
         </div>
-        <div class="campo-saida">
-            <button>+</button>
-            <div class="separacao"></div>
-            <input type="text" id="saida" value="S1" maxlength="2">
-            <span>=</span>
-            <input type="text" class="letraEntrada" value="A" maxlength = "1">
-            <select class="operacao">
-                <option value="x">x</option>
-                <option value="+">+</option>
-            </select>
-            <input type="text" class="letraEntrada" value="B" maxlength = "1">
-            <select class="operacao">
-                <option value="x">x</option>
-                <option value="+">+</option>
-            </select>
-            <input type="text" class="letraEntrada" value="C" maxlength = "1">
-        </div>
-        <div class="campo-saida">
-            <button>+</button>
-            <div class="separacao"></div>
-            <input type="text" id="saida" value="S2" maxlength="2">
-            <span>=</span>
-            <input type="text" class="letraEntrada" value="D" maxlength = "1">
-            <select class="operacao">
-                <option value="x">x</option>
-                <option value="+">+</option>
-            </select>
-            <input type="text" class="letraEntrada" value="E" maxlength = "1">
-        </div>
-        <div class="campo-saida">
-            <button>+</button>
-            <div class="separacao"></div>
-            <input type="text" id="saida" value="S" maxlength="2">
-            <span>=</span>
-            <input type="text" class="letraEntrada" value="S1" maxlength = "2">
-            <select class="operacao">
-                <option value="+">+</option>
-                <option value="x">x</option>
-            </select>
-            <input type="text" class="letraEntrada" value="S2" maxlength = "2">
-        </div>
 
         <div class="botoes">
-            <button>Adicionar saída</button>
+            <button onclick="adicionarSaida()">Adicionar saída</button>
             <button class="big-button" onclick="gerarTabela()">Gerar tabela</button>
             <button>Remover saída</button>    
         </div>
 
+        <div class="campos">
+            <div class="campo-saida">
+                <button>+</button>
+                <div class="separacao"></div>
+                <input type="text" class="inpSaida" value="S1" maxlength="2">
+                <span>=</span>
+                <input type="text" class="letraEntrada" value="A" maxlength = "1">
+                <select class="operacao">
+                    <option value="x">x</option>
+                    <option value="+">+</option>
+                </select>
+                <input type="text" class="letraEntrada" value="B" maxlength = "1">
+            </div>
+            <div class="campo-saida">
+                <button>+</button>
+                <div class="separacao"></div>
+                <input type="text" class="inpSaida" value="S2" maxlength="2">
+                <span>=</span>
+                <input type="text" class="letraEntrada" value="D" maxlength = "1">
+                <select class="operacao">
+                    <option value="x">x</option>
+                    <option value="+">+</option>
+                </select>
+                <input type="text" class="letraEntrada" value="E" maxlength = "1">
+            </div>
+            <div class="campo-saida">
+                <button>+</button>
+                <div class="separacao"></div>
+                <input type="text" class="inpSaida" value="S" maxlength="2">
+                <span>=</span>
+                <input type="text" class="letraEntrada" value="S1" maxlength = "2">
+                <select class="operacao">
+                    <option value="+">+</option>
+                    <option value="x">x</option>
+                </select>
+                <input type="text" class="letraEntrada" value="S2" maxlength = "2">
+            </div>
+        </div>
+
         <table>
-            <tr>
-                <th class="th-entrada">A</th>
-                <th class="th-entrada">B</th>
-                <th class="th-entrada">C</th>
-                <th class="th-entrada">D</th>
-                <th class="th-entrada">E</th>
-                <th>S1</th>
-                <th>S2</th>
-                <th>S</th>
-            </tr>
+            <thead>
+                <tr>
+                    <!-- <th class="th-entrada">A</th>
+                    <th class="th-entrada">B</th>
+                    <th class="th-entrada">C</th>
+                    <th class="th-entrada">D</th>
+                    <th>S1</th>
+                    <th>S2</th>
+                    <th>S</th> -->
+                </tr>
+            </thead>
         </table>
     </body>
 </html>
 
 <script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
+<script src="js/funcoes-botoes.js"></script>

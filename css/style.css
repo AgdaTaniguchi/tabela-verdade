@@ -23,16 +23,16 @@ table {
   table-layout: fixed;
 }
 
+table thead th {
+  padding: 10px;
+  background: #e53170;
+  color: #fffffe;
+}
+
 table tr {
   background: #f08caf;
   color: #0f0e17;
   text-align: center;
-}
-
-table tr th {
-  padding: 10px;
-  background: #e53170;
-  color: #fffffe;
 }
 
 table tr td {

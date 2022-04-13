@@ -79,7 +79,7 @@ function calcularSaidas(matriz, operador){
 function criarMatriz(ordemSaida, operadores){
     let qtdEntrada = 0;
     let colunasSaidas = [];
-    
+
     let contador = 0;
     for (let index = 0; index < ordemSaida.length; index++) {
         qtdEntrada += ordemSaida[index];
@@ -109,7 +109,7 @@ function criarMatriz(ordemSaida, operadores){
         }
 
         for(let coluna = 0; coluna < saidaLinha.length; coluna++){
-            if(contador != ordemSaida.length - 1 || ordemSaida.length == 1){
+            if((contador < ordemSaida.length - 1 && contador != 1) || ordemSaida.length == 1){
                 saidas.push([]);
             }
             saidas[coluna].push(saidaLinha[coluna]);
@@ -178,10 +178,4 @@ function inserirTabela(){
             }
         }
     }
-}
-
-inserirTabela();
-
-function gerarTabela(){
-    inserirTabela();
 }
